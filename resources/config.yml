@@ -1,0 +1,6 @@
+default-sound: pocketmusic.random # the name of the sound which will be played by default
+
+default-settings: # default sound settings. more informations on sounds.yml
+  load_on_low_memory: true
+min-distance: -1 # minimum distance of sounds. must be disabled with -1
+max-distance: -1 # maximum distance of sounds. can be disabled by setting value to -1

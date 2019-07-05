@@ -1,0 +1,35 @@
+---
+name: PocketMusic
+version: 0.0.1
+main: mcpepc\pocketmusic\PocketMusic
+api:
+- 3.0.0
+- 4.0.0
+description: Music player for PocketMine-MP
+author: MCPE_PC
+permissions:
+  pocketmusic:
+    default: true
+    description: Allows using all the PocketMusic things
+    children:
+      pocketmusic.command:
+        default: true
+        description: Allows using all the PocketMusic commands
+        children:
+          pocketmusic.command.pocketmusic:
+            default: true
+            description: Allows controlling PocketMusic
+            children:
+              pocketmusic.command.pocketmusic.user:
+                default: true
+                description: Allows the user to control PocketMusic
+              pocketmusic.command.pocketmusic.admin:
+                default: op
+                description: Allows the user to configure PocketMusic
+          pocketmusic.command.playsound:
+            default: op
+            description: Allows playing a sound to any players
+          pocketmusic.command.stopsound:
+            default: op
+            description: Allows stopping a sound to any players
+...
