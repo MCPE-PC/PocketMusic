@@ -1,17 +1,16 @@
 ---
-# PocketMusic sounds configuration
+# PocketMusic sounds configuration YAML
 
 # Example:
 # fade: # the sound name should only consist of lower case
 #   file: fade.ogg # optional, defaults to "sound name.ogg". place music files in sounds/ directory: supports Vorbis(.ogg) and FMOD Sample Bank(.fsb)
 #   duration: 260 # music duration in rounded down seconds
-#   world: world # optional. autoplay when the player enters the specific world
 #   settings: # optional. client-side settings. this example is default values, default settings can be set in config,yml
 #     stream: false # ???
 #     volume: 1 # percentage. must be at least 0
-#     pitch: 1 # pitch between 0.5~2
+#     pitch: 1 # pitch between 0.5 and 2
 #     load_on_low_memory: false # load this sound even on low memory?
 
-# Very short:
+# Super short:
 # fade: 260 # only set duration, uses default values. very similar with example above
 ...

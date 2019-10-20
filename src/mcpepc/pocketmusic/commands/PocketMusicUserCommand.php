@@ -12,7 +12,7 @@ use function strtolower;
 
 class PocketMusicUserCommand extends PocketMusicCommand {
 	function __construct(Plugin $plugin) {
-		parent::__construct('pocketmusic', $plugin, 'PocketMusic user control command', '/pocketmusic help', 'pocketmusic.command.pocketmusic.user', ['music', '음악']);
+		parent::__construct('pocketmusic', $plugin, 'PocketMusic user control command', '/pocketmusic help', 'pocketmusic.command.pocketmusic.user', ['music', '음악', '노래']);
 	}
 
 	function execute(CommandSender $sender, string $commandLabel, array $args): bool {
@@ -21,8 +21,8 @@ class PocketMusicUserCommand extends PocketMusicCommand {
 		}
 
 		$exception = false;
-		if (count($args) < 2) {
-			$sender->sendMessage(TextFormat::RED . "Usage: $this->usageMessage");
+		if (count($args) === 0) {
+			$sender->sendMessage(TextFormat::RED . 'Usage: ' . $this->usageMessage);
 			return false;
 		}
 
@@ -32,17 +32,19 @@ class PocketMusicUserCommand extends PocketMusicCommand {
 		}
 
 		switch (strtolower($args[0])) {
+			case 'help':
+			case '도움말':
+				$sender->sendMessage('Available commands: play, stop');
+				break;
 			case 'play':
 			case '재생':
 				if (!isset($args[1])) {
-					$sender->sendMessage('No sound name');
+					$sender->sendMessage(TextFormat::RED . 'No sound name');
 					return false;
 				}
-				Sound::stop($sender);
-				$this->getPlugin()->playSound($sender, $args[1]);
-				$sender->sendMessage("Playing $args[1]");
+				$this->getPlugin()->playSound(false, true, $sender, $args[1]);
+				$sender->sendMessage('Playing ' . $args[1]);
 				break;
-
 			case 'stop':
 			case '정지':
 				Sound::stop($sender);
@@ -50,7 +52,7 @@ class PocketMusicUserCommand extends PocketMusicCommand {
 		}
 
 		if ($exception) {
-			$sender->sendMessage(TextFormat::RED . "Usage: $this->usageMessage");
+			$sender->sendMessage(TextFormat::RED . 'Usage: ' . $this->usageMessage);
 			return false;
 		} else {
 			return true;

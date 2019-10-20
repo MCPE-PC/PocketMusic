@@ -1,6 +1,17 @@
-default-sound: pocketmusic.random # the name of the sound which will be played by default
+---
+# PocketMusic configuration YAML
+
+autoplay:
+  autoplay: true
+  force: false
+  default-sound: pocketmusic.random # the name of the sound which will be played by default. false to disable
+  worlds: # autoplay when the player enters the specific world folder name
+    example: pocketmusic.random # false to force disable. plays default sound for not listed worlds
+
+features: # true to allow the users to use the feature, false to disable it
+  playsound: true
+  stopsound: true
 
 default-settings: # default sound settings. more informations on sounds.yml
   load_on_low_memory: true
-min-distance: -1 # minimum distance of sounds. must be disabled with -1
-max-distance: -1 # maximum distance of sounds. can be disabled by setting value to -1
+...

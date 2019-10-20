@@ -1,10 +1,10 @@
 ---
 name: PocketMusic
-version: 0.0.1
+version: 0.2.0
 main: mcpepc\pocketmusic\PocketMusic
 api:
 - 3.0.0
-- 4.0.0
+# - 4.0.0
 description: Music player for PocketMine-MP
 author: MCPE_PC
 permissions:
